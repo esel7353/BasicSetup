@@ -1,0 +1,8 @@
+*.swp
+cifs*
+*.aux
+*.log
+*.bbl
+*.blg
+*.toc
+*.idx
