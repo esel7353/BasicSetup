@@ -4,5 +4,6 @@ bashscripts
 A collection of small bash scripts.
 
 Contents:
-  - the toolbox script (file: t)
-  - quick latex (file: qlatex and .qlatex.tex) written in python3
+  - install script: copies all the script to bin 
+  - the toolbox script: manages scripts used for a project
+  - quick latex (written in python3): translates a qlx file to tex and to pdf
