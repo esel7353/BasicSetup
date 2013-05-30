@@ -1,0 +1,5 @@
+#!/bin/bash
+chmod +x qlatex t
+cp qlatex ~/bin
+cp t ~/bin
+cp .qlatex.tex ~/
