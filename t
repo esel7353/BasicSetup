@@ -125,6 +125,7 @@ do
     if [ "$1" == "-" ]
     then
       vim $PWD/.tools/$2
+      chmod u+x $PWD/.tools/$2
       exit 0
     fi
 
