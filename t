@@ -4,6 +4,25 @@
 #       The Toolbox Script
 #
 ###############################################################################
+# Description
+#
+# While working on a software project, one often uses a few script to automate
+# Simple tasks (build, clean, commit, ...) Depending on the directory structure of the project, the
+# commands to run the scripts can become very long. Placing the script in the 
+# local bin folder, is not an satisfying solution, because there meight be many
+# similar scripts for different project, which need distinct names.
+#
+# This small script is designed to run these script very quickly. All scripts
+# which are used for one project are stored in a folder called ".tools" located
+# in the base directory of the project. Buy running
+#
+#   t <script name>  
+#
+# in any subfolder of the project the script in the tool box will be executed.
+# These scripts are called tools. The whole collection of these scripts is
+# calles the toolbox (of a project).
+#
+###############################################################################
 # Copyright (C) 2013, Frank Sauerburger
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,25 +42,6 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
-#
-###############################################################################
-# Description
-#
-# While working on a software project, one often uses a few script to automate
-# simple tasks. Depending on the directory structure of the project, the
-# commands to run the scripts can become very long. Placing the script in the 
-# local bin folder, is not an satisfying solution, because there meight be many
-# similar scripts for different project, which need distinct names.
-#
-# This small script is designed to run these script very quickly. All scripts
-# which are used for one project are stored in a folder called ".tools" located
-# in the base directory of the project. Buy running
-#
-#   t <script name>  
-#
-# in any subfolder of the project the script in the tool box will be executed.
-# These scripts are called tools. The whole collection of these scripts is
-# calles the toolbox (of a project).
 #
 ###############################################################################
 # How to use?
