@@ -22,6 +22,8 @@
 #
 ###############################################################################
 chmod +x qlatex t
-cp qlatex ~/bin
-cp t ~/bin
+cp qlatex /usr/bin
+chmod +x /usr/bin/qlatex
+cp t /usr/bin
+chmod +x /usr/bin/t
 cp .qlatex.tex ~/

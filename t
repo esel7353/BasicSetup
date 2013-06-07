@@ -7,10 +7,11 @@
 # Description
 #
 # While working on a software project, one often uses a few script to automate
-# Simple tasks (build, clean, commit, ...) Depending on the directory structure of the project, the
-# commands to run the scripts can become very long. Placing the script in the 
-# local bin folder, is not an satisfying solution, because there meight be many
-# similar scripts for different project, which need distinct names.
+# Simple tasks (build, clean, commit, ...) Depending on the directory structure
+# of the project, the commands to run the scripts can become very long. Placing
+# the script in the local bin folder, is not an satisfying solution, because
+# there meight be many similar scripts for different project, which need
+# distinct names.
 #
 # This small script is designed to run these script very quickly. All scripts
 # which are used for one project are stored in a folder called ".tools" located
@@ -122,7 +123,7 @@ do
     fi
        
     # make new tool
-    if [ "$1" == "-" ]
+    if [ "$1" == "-new" ]
     then
       vim $PWD/.tools/$2
       chmod u+x $PWD/.tools/$2

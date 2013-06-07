@@ -27,7 +27,7 @@
 ###############################################################################
 # Usage
 #
-# qlatex [-o] file1 [file2 [file3 ... ]]
+# qlatex [-[p][o]] file1 [file2 [file3 ... ]]
 #
 ###############################################################################
 
@@ -99,11 +99,26 @@ def openPdf(fname):
 
 if __name__ == "__main__":
   show = False
+  pdf = False
+
+  if len(sys.argv) <= 1:
+    print("no argument")
+    exit()
+
+  if sys.argv[1] == "-po":
+    show = True
+    pdf = True
+    del sys.argv[1]
+
+  if sys.argv[1] == "-p":
+    pdf = False
+    del sys.argv[1]
+
   if sys.argv[1] == "-o":
     show = True
     del sys.argv[1]
 
   for arg in sys.argv[1:]:
     makeLatex(arg)
-    makePdf(arg)
-    if show: openPdf(arg)
+    if pdf: makePdf(arg);
+    if show: openPdf(arg);
