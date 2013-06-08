@@ -67,7 +67,7 @@
 #     %HOME/.t/<template name>/
 #
 # where to put system template tools:
-#     /usr/shate/ttemplate/<template name>/
+#     /usr/share/ttemplate/<template name>/
 #
 ###############################################################################
 

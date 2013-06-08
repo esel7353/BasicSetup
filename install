@@ -21,9 +21,13 @@
 # THE SOFTWARE.
 #
 ###############################################################################
-chmod +x qlatex t
+
+#qlatex
 cp qlatex /usr/bin
-chmod +x /usr/bin/qlatex
-cp t /usr/bin
-chmod +x /usr/bin/t
 cp .qlatex.tex ~/
+chmod +x /usr/bin/qlatex
+
+#toolbox
+cp t /usr/bin
+cp ttemplate /usr/share/
+chmod +x /usr/bin/t
