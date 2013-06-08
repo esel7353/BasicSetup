@@ -4,8 +4,8 @@ then
   rm -rf /tmp/eselMakepdf
 fi
 mkdir /tmp/eselMakepdf
-mkdir /tmp/eselMakepdf/tex
-cp tex/* /tmp/eselMakepdf/tex
-pdflatex -output-directory=/tmp/eselMakepdf/ /tmp/eselMakepdf/tex/*
-cp /tmp/eselMakepdf/tex/* tex
-cp /tmp/eselMakepdf/*.pdf .
+cp tex/* /tmp/eselMakepdf
+pdflatex -output-directory=/tmp/eselMakepdf /tmp/eselMakepdf/*.tex
+mv /tmp/eselMakepdf/*.pdf . 
+rm /tmp/eselMakepdf/*.tex
+mv /tmp/eselMakepdf/* tex

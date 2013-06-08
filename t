@@ -89,7 +89,7 @@ then
       else
         if [ -d /usr/share/ttemplate/$2 ]
           then 
-            cp /usr/share/ttemplate/$2
+            cp /usr/share/ttemplate/$2/* ./.tools/
             echo "  from system template"
         fi
     fi
