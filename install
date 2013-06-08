@@ -29,5 +29,7 @@ chmod +x /usr/bin/qlatex
 
 #toolbox
 cp t /usr/bin
-cp ttemplate /usr/share/
+mkdir /usr/share/ttemplate
+mkdir /usr/share/ttemplate/tex
+cp ttemplate/tex/* /usr/share/ttemplate/tex
 chmod +x /usr/bin/t
