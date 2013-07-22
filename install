@@ -22,14 +22,29 @@
 #
 ###############################################################################
 
-#qlatex
-cp qlatex /usr/bin
-cp .qlatex.tex ~/
-chmod +x /usr/bin/qlatex
+# Must be run as root.
 
-#toolbox
-cp t /usr/bin
-mkdir /usr/share/ttemplate
-mkdir /usr/share/ttemplate/tex
-cp ttemplate/tex/* /usr/share/ttemplate/tex
+# packages
+echo "=== Installing Packages... ==="
+apt-get -y install python3 ipython3 python3 python3-mathplotlib python3-scipy python3-numpy jabref guake wakeonlan cifs-utils texlive-full
+
+# vimbin/ & tmux
+echo "=== Copying Program Configs ==="
+cp .vimrc ~
+cp .tmux.conf ~
+
+echo "=== Installing Tools  ==="
+# qlatex
+cp bin/qlatex /usr/bin
+chmod +x /usr/bin/qlatex
+cp .qlatex.tex ~
+
+# qletter
+cp bin/qletter /usr/bin
+chmod +x /usr/bin/qletter
+cp .qletter ~
+
+# toolbox
+cp bin/t /usr/bin
 chmod +x /usr/bin/t
+cp ttemplate/tex/* /usr/share/ttemplate/tex

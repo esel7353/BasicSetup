@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 ##############################################################################
 #
-#       Quick Latex
+#       Quick Letter
 #
 ##############################################################################
 # Copyright (C) 2013, Frank Sauerburger
@@ -46,51 +46,39 @@ def parsePackages(lines):
   return ps
 
 def makeLatex(fname):
-  title    = ""
-  content  = ""
-  author   = ""
-  packages = ""
 
   f = open(fname, "r")
   lines = f.readlines()
-  if lines[1][0:6] == "="*6:
-    title = lines[0].strip()
-    del lines[0:2]
-    if lines[0].strip() != "":
-      packages = parsePackages(lines)
-
-  if lines[2][0:6] == "="*6:
-    title = lines[0].strip()
-    author = lines[1].strip()
-    del lines[0:3]
-    if lines[0].strip() != "":
-      packages = parsePackages(lines)
-
-  for line in lines:
-    if line[0:3] == "===":
-      content += "\section{" + line[3:].strip() + "}\n"
-      continue
-    if line[0:2] == "==":
-      content += "\subsection{" + line[2:].strip() + "}\n"
-      continue
-    if line[0:1] == "=":
-      content += "\subsubsection{" + line[1:].strip() + "}\n"
-      continue
-    content += line
-    
   f.close()
   
-  tpl = open(os.path.expanduser("~/.qlatex.tex"), "r")
-  tpl = tpl.readlines()
+  if len(lines) >= 7:
+    params  = lines[0]
+    tex     = lines[1]
+    to      = lines[2]
+    subject = lines[3]
+    hello   = lines[4]
+    t    = lines[5:-1]
+    bye     = lines[-1]
 
-  output = [x.replace("%%%TITLE%%%", title).replace("%%%CONTENT%%%", content).replace("%%%AUTHOR%%%", author).replace("%%%PACKAGES%%%", packages) for x in tpl]
+    text = ""
+    for line in t:
+      text += line
+  
+    tpl = open(os.path.expanduser("~/.qletter.tex"), "r")
+    tpl = tpl.readlines()
 
-  f = open(fname, "w");
-  f.writelines(output)
-  f.close()
+    output = [x.replace("%%%PARAMS%%%", params.strip()).replace("%%%TEX%%%", tex).replace("%%%TO%%%",
+    to.strip()).replace("%%%SUBJECT%%%", subject.strip()).replace("%%%HELLO%%%", hello.strip()).replace("%%%TEXT%%%",
+    text).replace("%%%BYE%%%", bye.strip()) for x in tpl]
+
+    f = open(fname, "w");
+    f.writelines(output)
+    f.close()
+  else:
+    print("Wrong format in "  + fname)
 
 def makePdf(fname):
-  pdf = os.popen("pdflatex " + fname);
+  pdf = os.popen("pdflatex " + fname)
   for l in pdf:
     print(l.strip()) 
   
@@ -120,6 +108,8 @@ if __name__ == "__main__":
 
   for arg in sys.argv[1:]:
     makeLatex(arg)
-    if pdf: makePdf(arg);
+    if pdf: 
+      makePdf(arg);
+      makePdf(arg);
     if show: openPdf(arg);
     sys.exit(0)

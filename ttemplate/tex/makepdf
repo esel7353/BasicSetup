@@ -1,11 +1,4 @@
 #!/bin/bash
-if [ -d /tmp/eselMakepdf ]
-then 
-  rm -rf /tmp/eselMakepdf
-fi
-mkdir /tmp/eselMakepdf
-cp tex/* /tmp/eselMakepdf
-pdflatex -output-directory=/tmp/eselMakepdf /tmp/eselMakepdf/*.tex
-mv /tmp/eselMakepdf/*.pdf . 
-rm /tmp/eselMakepdf/*.tex
-mv /tmp/eselMakepdf/* tex
+cd pm/tex
+pdflatex -output-directory=../ *.tex
+
