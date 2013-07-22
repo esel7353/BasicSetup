@@ -42,7 +42,7 @@ cp .qlatex.tex ~
 # qletter
 cp bin/qletter /usr/bin
 chmod +x /usr/bin/qletter
-cp .qletter ~
+cp .qletter.tex ~
 
 # toolbox
 cp bin/t /usr/bin
